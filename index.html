@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Que tipo de inteligência você tem que a escola nunca viu?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg1:#06030f;--bg2:#0e0720;--accent:#7c6af7;--accent2:#b09ef8;
+  --glass:rgba(255,255,255,0.05);--border:rgba(255,255,255,0.09);
+  --text:#eeeaff;--muted:rgba(238,234,255,0.5)
+}
+body{
+  font-family:'Inter',sans-serif;background:linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 50%,#080413 100%);
+  min-height:100vh;color:var(--text);display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:24px 16px;overflow-x:hidden;position:relative
+}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;animation:drift 9s ease-in-out infinite}
+.orb1{width:320px;height:320px;background:rgba(124,106,247,0.14);top:-100px;left:-60px}
+.orb2{width:260px;height:260px;background:rgba(176,158,248,0.10);bottom:-80px;right:-60px;animation-delay:-4.5s}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(18px,28px)}}
+.particle{position:fixed;border-radius:50%;background:var(--accent);opacity:0;pointer-events:none;animation:float-up linear infinite}
+@keyframes float-up{0%{transform:translateY(100vh);opacity:0}10%{opacity:.35}90%{opacity:.1}100%{transform:translateY(-20px);opacity:0}}
+
+main{position:relative;z-index:1;width:100%;max-width:480px;display:flex;flex-direction:column;align-items:center;gap:24px}
+
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--glass);border:1px solid var(--border);border-radius:100px;padding:6px 14px;font-size:12px;color:var(--accent2);font-weight:500;letter-spacing:.5px;text-transform:uppercase;backdrop-filter:blur(12px);animation:fadeDown .6s ease}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+
+h1{font-size:clamp(23px,5.5vw,34px);font-weight:700;text-align:center;line-height:1.25;background:linear-gradient(135deg,#eeeaff 0%,var(--accent2) 55%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeUp .7s ease .1s both}
+.subtitle{font-size:15px;color:var(--muted);text-align:center;line-height:1.6;max-width:380px;animation:fadeUp .7s ease .2s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* intelligence type icons */
+.intel-grid{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:10px;animation:fadeUp .7s ease .25s both}
+.intel-card{background:var(--glass);border:1px solid var(--border);border-radius:14px;padding:14px;backdrop-filter:blur(12px);text-align:center;position:relative;overflow:hidden}
+.intel-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.intel-card:hover::after{transform:scaleX(1)}
+.intel-icon{font-size:28px;margin-bottom:6px}
+.intel-name{font-size:12px;font-weight:600;color:var(--accent2)}
+.intel-desc{font-size:10px;color:var(--muted);margin-top:2px}
+
+/* discovery bar */
+.discovery{width:100%;background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:18px;backdrop-filter:blur(12px);animation:fadeUp .7s ease .3s both}
+.disc-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px}
+.disc-rows{display:flex;flex-direction:column;gap:8px}
+.disc-row{display:flex;align-items:center;gap:10px;font-size:12px;color:rgba(238,234,255,.7)}
+.disc-row-bar{flex:1;height:4px;background:rgba(255,255,255,.07);border-radius:100px;overflow:hidden}
+.disc-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width 1.4s ease}
+
+.card{width:100%;background:var(--glass);border:1px solid var(--border);border-radius:20px;padding:24px;backdrop-filter:blur(16px);animation:fadeUp .7s ease .35s both}
+.checks{display:flex;flex-direction:column;gap:12px}
+.check-item{display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(238,234,255,.8)}
+.check-icon{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px}
+
+.cta-btn{width:100%;padding:17px;border:none;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:16px;font-weight:700;cursor:pointer;animation:fadeUp .7s ease .4s both,pulse 2.4s ease-in-out 1.2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(124,106,247,.4)}70%{box-shadow:0 0 0 14px rgba(124,106,247,0)}}
+
+.prog-bar{width:100%;background:var(--glass);border:1px solid var(--border);border-radius:12px;padding:14px 16px;backdrop-filter:blur(12px);animation:fadeUp .7s ease .5s both}
+.prog-label{font-size:12px;color:var(--muted);margin-bottom:8px;display:flex;justify-content:space-between}
+.bar-track{height:6px;background:rgba(255,255,255,.07);border-radius:100px;overflow:hidden}
+.bar-fill{height:100%;width:0;border-radius:100px;background:linear-gradient(90deg,var(--accent),var(--accent2));animation:fill-bar 1.8s ease .8s forwards}
+@keyframes fill-bar{to{width:94%}}
+
+.counter{font-size:13px;color:var(--muted);text-align:center;animation:fadeUp .7s ease .6s both}
+.counter span{color:var(--accent2);font-weight:600}
+
+.unlock{width:100%;background:var(--glass);border:1px solid var(--border);border-radius:20px;padding:28px 24px;backdrop-filter:blur(16px);text-align:center;animation:fadeUp .7s ease .7s both}
+.unlock h2{font-size:20px;font-weight:700;margin-bottom:8px}
+.unlock p{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.5}
+.unlock-btn{display:block;width:100%;padding:15px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:15px;font-weight:700;text-decoration:none;border:none;cursor:pointer}
+
+footer{font-size:11px;color:rgba(255,255,255,.18);text-align:center;animation:fadeUp .7s ease .8s both}
+</style>
+</head>
+<body>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<main>
+  <div class="badge">🧩 potencial oculto</div>
+
+  <h1>Talvez você nunca tenha sido ruim. Apenas avaliado da forma errada.</h1>
+
+  <p class="subtitle">Você já sentiu que era inteligente, mas nunca do jeito que a escola queria? Este teste vai explicar por quê.</p>
+
+  <div class="intel-grid">
+    <div class="intel-card">
+      <div class="intel-icon">📐</div>
+      <div class="intel-name">Lógico-Analítica</div>
+      <div class="intel-desc">Padrões, sistemas, dados</div>
+    </div>
+    <div class="intel-card">
+      <div class="intel-icon">🫀</div>
+      <div class="intel-name">Emocional-Social</div>
+      <div class="intel-desc">Pessoas, empatia, liderança</div>
+    </div>
+    <div class="intel-card">
+      <div class="intel-icon">🔨</div>
+      <div class="intel-name">Prático-Técnica</div>
+      <div class="intel-desc">Construção, execução, resultado</div>
+    </div>
+    <div class="intel-card">
+      <div class="intel-icon">🎨</div>
+      <div class="intel-name">Criativo-Intuitiva</div>
+      <div class="intel-desc">Visão, inovação, futuro</div>
+    </div>
+  </div>
+
+  <div class="discovery">
+    <div class="disc-label">Distribuição dos participantes</div>
+    <div class="disc-rows">
+      <div class="disc-row"><span style="width:130px">Emocional-Social</span><div class="disc-row-bar"><div class="disc-fill" data-w="71"></div></div><span>71%</span></div>
+      <div class="disc-row"><span style="width:130px">Criativo-Intuitiva</span><div class="disc-row-bar"><div class="disc-fill" data-w="58"></div></div><span>58%</span></div>
+      <div class="disc-row"><span style="width:130px">Prático-Técnica</span><div class="disc-row-bar"><div class="disc-fill" data-w="44"></div></div><span>44%</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="checks">
+      <div class="check-item"><div class="check-icon">✓</div>Por que o sistema nunca valorizou seus talentos</div>
+      <div class="check-item"><div class="check-icon">✓</div>Habilidades que você desenvolveu sem perceber</div>
+      <div class="check-item"><div class="check-icon">✓</div>Qual carreira pode explorar seu potencial real</div>
+      <div class="check-item"><div class="check-icon">✓</div>Validação emocional baseada em psicologia cognitiva</div>
+    </div>
+  </div>
+
+  <button class="cta-btn">Descobrir meu potencial oculto →</button>
+
+  <div class="prog-bar">
+    <div class="prog-label">
+      <span>94% sentem que o resultado explica anos de frustração</span>
+      <span id="pct">0%</span>
+    </div>
+    <div class="bar-track"><div class="bar-fill"></div></div>
+  </div>
+
+  <p class="counter"><span id="live-count">19</span> pessoas descobriram seu tipo nos últimos 5 minutos</p>
+
+  <div class="unlock">
+    <h2>🧩 Descobrir meu potencial oculto</h2>
+    <p>Como seria sua vida se você tivesse sido reconhecido desde o início — e como ainda dá tempo de mudar o rumo.</p>
+    <a href="[INSERIR LINK DE PAGAMENTO AQUI]" class="unlock-btn">Quero descobrir meu potencial →</a>
+  </div>
+
+  <footer>Para muitas pessoas, este resultado explica anos de frustração e comparação.</footer>
+</main>
+
+<script>
+(function(){for(let i=0;i<10;i++){const p=document.createElement('div');p.className='particle';p.style.cssText=`left:${Math.random()*100}%;animation-duration:${7+Math.random()*9}s;animation-delay:${Math.random()*9}s;width:${2+Math.random()*3}px;height:${2+Math.random()*3}px`;document.body.appendChild(p)}})();
+
+setTimeout(()=>{document.querySelectorAll('.disc-fill').forEach(el=>{el.style.width=el.dataset.w+'%'})},400);
+
+let n=0;const pct=document.getElementById('pct');
+setTimeout(()=>{const t=setInterval(()=>{n++;pct.textContent=n+'%';if(n>=94)clearInterval(t)},16)},800);
+const el=document.getElementById('live-count');
+setInterval(()=>{el.textContent=Math.max(9,parseInt(el.textContent)+(Math.random()>.5?1:-1))},4300);
+</script>
+</body>
+</html>
