@@ -3,161 +3,162 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Que tipo de inteligência você tem que a escola nunca viu?</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Que tipo de inteligência você tem?</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg1:#06030f;--bg2:#0e0720;--accent:#7c6af7;--accent2:#b09ef8;
-  --glass:rgba(255,255,255,0.05);--border:rgba(255,255,255,0.09);
-  --text:#eeeaff;--muted:rgba(238,234,255,0.5)
+  --bg:#07050F;--surface:rgba(255,255,255,0.04);--surface2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.08);--border-hover:rgba(255,255,255,0.18);
+  --indigo:#6366F1;--violet:#8B5CF6;--lavender:#A78BFA;
+  --text:#F5F3FF;--muted:#C4B5FD;--dim:#4B5563;
 }
-body{
-  font-family:'Inter',sans-serif;background:linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 50%,#080413 100%);
-  min-height:100vh;color:var(--text);display:flex;flex-direction:column;align-items:center;
-  justify-content:center;padding:24px 16px;overflow-x:hidden;position:relative
-}
-.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;animation:drift 9s ease-in-out infinite}
-.orb1{width:320px;height:320px;background:rgba(124,106,247,0.14);top:-100px;left:-60px}
-.orb2{width:260px;height:260px;background:rgba(176,158,248,0.10);bottom:-80px;right:-60px;animation-delay:-4.5s}
-@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(18px,28px)}}
-.particle{position:fixed;border-radius:50%;background:var(--accent);opacity:0;pointer-events:none;animation:float-up linear infinite}
-@keyframes float-up{0%{transform:translateY(100vh);opacity:0}10%{opacity:.35}90%{opacity:.1}100%{transform:translateY(-20px);opacity:0}}
-
-main{position:relative;z-index:1;width:100%;max-width:480px;display:flex;flex-direction:column;align-items:center;gap:24px}
-
-.badge{display:inline-flex;align-items:center;gap:8px;background:var(--glass);border:1px solid var(--border);border-radius:100px;padding:6px 14px;font-size:12px;color:var(--accent2);font-weight:500;letter-spacing:.5px;text-transform:uppercase;backdrop-filter:blur(12px);animation:fadeDown .6s ease}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
-
-h1{font-size:clamp(23px,5.5vw,34px);font-weight:700;text-align:center;line-height:1.25;background:linear-gradient(135deg,#eeeaff 0%,var(--accent2) 55%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeUp .7s ease .1s both}
-.subtitle{font-size:15px;color:var(--muted);text-align:center;line-height:1.6;max-width:380px;animation:fadeUp .7s ease .2s both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-
-/* intelligence type icons */
-.intel-grid{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:10px;animation:fadeUp .7s ease .25s both}
-.intel-card{background:var(--glass);border:1px solid var(--border);border-radius:14px;padding:14px;backdrop-filter:blur(12px);text-align:center;position:relative;overflow:hidden}
-.intel-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transition:transform .3s;transform-origin:left}
-.intel-card:hover::after{transform:scaleX(1)}
-.intel-icon{font-size:28px;margin-bottom:6px}
-.intel-name{font-size:12px;font-weight:600;color:var(--accent2)}
-.intel-desc{font-size:10px;color:var(--muted);margin-top:2px}
-
-/* discovery bar */
-.discovery{width:100%;background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:18px;backdrop-filter:blur(12px);animation:fadeUp .7s ease .3s both}
-.disc-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px}
-.disc-rows{display:flex;flex-direction:column;gap:8px}
-.disc-row{display:flex;align-items:center;gap:10px;font-size:12px;color:rgba(238,234,255,.7)}
-.disc-row-bar{flex:1;height:4px;background:rgba(255,255,255,.07);border-radius:100px;overflow:hidden}
-.disc-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width 1.4s ease}
-
-.card{width:100%;background:var(--glass);border:1px solid var(--border);border-radius:20px;padding:24px;backdrop-filter:blur(16px);animation:fadeUp .7s ease .35s both}
-.checks{display:flex;flex-direction:column;gap:12px}
-.check-item{display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(238,234,255,.8)}
-.check-icon{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px}
-
-.cta-btn{width:100%;padding:17px;border:none;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:16px;font-weight:700;cursor:pointer;animation:fadeUp .7s ease .4s both,pulse 2.4s ease-in-out 1.2s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(124,106,247,.4)}70%{box-shadow:0 0 0 14px rgba(124,106,247,0)}}
-
-.prog-bar{width:100%;background:var(--glass);border:1px solid var(--border);border-radius:12px;padding:14px 16px;backdrop-filter:blur(12px);animation:fadeUp .7s ease .5s both}
-.prog-label{font-size:12px;color:var(--muted);margin-bottom:8px;display:flex;justify-content:space-between}
-.bar-track{height:6px;background:rgba(255,255,255,.07);border-radius:100px;overflow:hidden}
-.bar-fill{height:100%;width:0;border-radius:100px;background:linear-gradient(90deg,var(--accent),var(--accent2));animation:fill-bar 1.8s ease .8s forwards}
-@keyframes fill-bar{to{width:94%}}
-
-.counter{font-size:13px;color:var(--muted);text-align:center;animation:fadeUp .7s ease .6s both}
-.counter span{color:var(--accent2);font-weight:600}
-
-.unlock{width:100%;background:var(--glass);border:1px solid var(--border);border-radius:20px;padding:28px 24px;backdrop-filter:blur(16px);text-align:center;animation:fadeUp .7s ease .7s both}
-.unlock h2{font-size:20px;font-weight:700;margin-bottom:8px}
-.unlock p{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.5}
-.unlock-btn{display:block;width:100%;padding:15px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:15px;font-weight:700;text-decoration:none;border:none;cursor:pointer}
-
-footer{font-size:11px;color:rgba(255,255,255,.18);text-align:center;animation:fadeUp .7s ease .8s both}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 20% 10%,rgba(99,102,241,.16) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 80% 90%,rgba(139,92,246,.10) 0%,transparent 60%)}
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent)}
+.wrap{position:relative;z-index:1;width:100%;max-width:460px}
+.screen{display:none;flex-direction:column}
+.screen.active{display:flex;animation:up .45s cubic-bezier(.16,1,.3,1)}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+.prog-row{display:flex;align-items:center;gap:14px;margin-bottom:44px}
+.prog-track{flex:1;height:3px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--indigo),var(--violet));border-radius:3px;transition:width .6s cubic-bezier(.4,0,.2,1);box-shadow:0 0 10px rgba(99,102,241,.5)}
+.prog-txt{font-size:12px;color:var(--dim);font-weight:500;flex-shrink:0}
+.q-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:#C4B5FD;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:16px}
+.q-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--indigo);animation:blink 1.8s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.q-text{font-size:clamp(20px,5vw,26px);font-weight:700;color:var(--text);line-height:1.3;letter-spacing:-.4px;margin-bottom:32px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:18px 20px;font-size:15px;color:var(--muted);cursor:pointer;text-align:left;line-height:1.5;transition:all .2s cubic-bezier(.4,0,.2,1);-webkit-tap-highlight-color:transparent;position:relative;overflow:hidden;backdrop-filter:blur(8px)}
+.opt::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(99,102,241,.08),rgba(139,92,246,.04));opacity:0;transition:opacity .2s;border-radius:inherit}
+.opt:hover{border-color:var(--border-hover);color:var(--text);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.opt:hover::before{opacity:1}
+.opt:active{transform:translateY(0);transition-duration:.08s}
+.opt.sel{background:linear-gradient(135deg,rgba(99,102,241,.2),rgba(139,92,246,.1));border-color:rgba(99,102,241,.5);color:var(--text);transform:translateY(-2px);box-shadow:0 8px 32px rgba(99,102,241,.2)}
+.opt.sel::after{content:'✓';position:absolute;right:18px;top:50%;transform:translateY(-50%);width:24px;height:24px;background:linear-gradient(135deg,var(--indigo),var(--violet));border-radius:50%;font-size:11px;font-weight:700;color:#fff;animation:pop .25s cubic-bezier(.16,1,.3,1);display:flex;align-items:center;justify-content:center;text-align:center;line-height:24px}
+@keyframes pop{from{transform:translateY(-50%) scale(0)}to{transform:translateY(-50%) scale(1)}}
+#sl{align-items:center;justify-content:center;min-height:60vh;gap:22px}
+.spin{width:46px;height:46px;border:2px solid rgba(255,255,255,.06);border-top-color:var(--indigo);border-right-color:var(--violet);border-radius:50%;animation:spin .8s linear infinite;box-shadow:0 0 20px rgba(99,102,241,.3)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.dots{display:flex;gap:7px}
+.dots i{display:block;width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.15);animation:dot .9s ease-in-out infinite}
+.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,80%,100%{transform:scale(.6);background:rgba(255,255,255,.15)}40%{transform:scale(1);background:var(--indigo)}}
+.ltxt{font-size:14px;color:var(--dim)}
+#sr{gap:14px}
+.r-hero{background:linear-gradient(135deg,rgba(99,102,241,.2) 0%,rgba(139,92,246,.15) 50%,rgba(167,139,250,.1) 100%);border:1px solid rgba(99,102,241,.25);border-radius:22px;padding:30px 26px;backdrop-filter:blur(16px);animation:up .45s cubic-bezier(.16,1,.3,1)}
+.r-eyebrow{font-size:11px;font-weight:600;color:#C4B5FD;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:12px}
+.r-name{font-size:clamp(28px,7vw,36px);font-weight:800;letter-spacing:-.8px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#F5F3FF,#C4B5FD,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.r-desc{font-size:15px;color:var(--muted);line-height:1.7}
+.r-pts{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:24px 22px;display:flex;flex-direction:column;gap:16px;backdrop-filter:blur(12px);animation:up .45s cubic-bezier(.16,1,.3,1) .08s both}
+.rp{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--muted);line-height:1.6}
+.rp-icon{width:24px;height:24px;border-radius:8px;flex-shrink:0;margin-top:1px;background:linear-gradient(135deg,rgba(99,102,241,.3),rgba(139,92,246,.2));border:1px solid rgba(99,102,241,.2);display:flex;align-items:center;justify-content:center;font-size:11px;color:#C4B5FD}
+.r-cta{background:var(--surface2);border:1px solid var(--border);border-radius:22px;padding:26px;backdrop-filter:blur(16px);animation:up .45s cubic-bezier(.16,1,.3,1) .16s both}
+.cta-tag{font-size:11px;font-weight:600;color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.cta-h{font-size:20px;font-weight:700;letter-spacing:-.3px;margin-bottom:5px}
+.cta-s{font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.55}
+.cta-checks{display:flex;flex-direction:column;gap:9px;margin-bottom:22px}
+.cta-check{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--muted)}
+.cta-check-dot{width:18px;height:18px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--indigo),var(--violet));display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;font-weight:700}
+.cta-btn{display:block;width:100%;padding:17px;background:linear-gradient(135deg,var(--indigo) 0%,var(--violet) 100%);border:none;border-radius:14px;font-size:15px;font-weight:700;color:#fff;cursor:pointer;text-decoration:none;text-align:center;font-family:inherit;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;animation:pulse-btn 3s ease-in-out infinite}
+.cta-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 16px 48px rgba(99,102,241,.4)}
+@keyframes pulse-btn{0%,100%{box-shadow:0 0 0 0 rgba(99,102,241,.4)}50%{box-shadow:0 0 0 10px rgba(99,102,241,0)}}
+.cta-price{font-size:12px;color:var(--dim);text-align:center;margin-top:12px}
 </style>
 </head>
 <body>
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
+<div class="bg-glow"></div><div class="bg-grid"></div>
+<div class="wrap">
 
-<main>
-  <div class="badge">🧩 potencial oculto</div>
-
-  <h1>Talvez você nunca tenha sido ruim. Apenas avaliado da forma errada.</h1>
-
-  <p class="subtitle">Você já sentiu que era inteligente, mas nunca do jeito que a escola queria? Este teste vai explicar por quê.</p>
-
-  <div class="intel-grid">
-    <div class="intel-card">
-      <div class="intel-icon">📐</div>
-      <div class="intel-name">Lógico-Analítica</div>
-      <div class="intel-desc">Padrões, sistemas, dados</div>
-    </div>
-    <div class="intel-card">
-      <div class="intel-icon">🫀</div>
-      <div class="intel-name">Emocional-Social</div>
-      <div class="intel-desc">Pessoas, empatia, liderança</div>
-    </div>
-    <div class="intel-card">
-      <div class="intel-icon">🔨</div>
-      <div class="intel-name">Prático-Técnica</div>
-      <div class="intel-desc">Construção, execução, resultado</div>
-    </div>
-    <div class="intel-card">
-      <div class="intel-icon">🎨</div>
-      <div class="intel-name">Criativo-Intuitiva</div>
-      <div class="intel-desc">Visão, inovação, futuro</div>
-    </div>
+<div class="screen active" id="s1">
+  <div class="prog-row"><div class="prog-track"><div class="prog-fill" style="width:16%"></div></div><span class="prog-txt">1 / 6</span></div>
+  <div class="q-tag"><div class="q-tag-dot"></div>Pergunta 01</div>
+  <div class="q-text">Em qual situação você aprende melhor?</div>
+  <div class="opts">
+    <div class="opt" onclick="pick(this,1,'A')">Lendo, estudando sozinho, organizando as ideias por escrito.</div>
+    <div class="opt" onclick="pick(this,1,'B')">Conversando, debatendo, ouvindo outras perspectivas.</div>
+    <div class="opt" onclick="pick(this,1,'C')">Fazendo — errando e ajustando na prática.</div>
+    <div class="opt" onclick="pick(this,1,'D')">Observando pessoas e entendendo dinâmicas ao redor.</div>
   </div>
+</div>
 
-  <div class="discovery">
-    <div class="disc-label">Distribuição dos participantes</div>
-    <div class="disc-rows">
-      <div class="disc-row"><span style="width:130px">Emocional-Social</span><div class="disc-row-bar"><div class="disc-fill" data-w="71"></div></div><span>71%</span></div>
-      <div class="disc-row"><span style="width:130px">Criativo-Intuitiva</span><div class="disc-row-bar"><div class="disc-fill" data-w="58"></div></div><span>58%</span></div>
-      <div class="disc-row"><span style="width:130px">Prático-Técnica</span><div class="disc-row-bar"><div class="disc-fill" data-w="44"></div></div><span>44%</span></div>
-    </div>
+<div class="screen" id="s2">
+  <div class="prog-row"><div class="prog-track"><div class="prog-fill" style="width:33%"></div></div><span class="prog-txt">2 / 6</span></div>
+  <div class="q-tag"><div class="q-tag-dot"></div>Pergunta 02</div>
+  <div class="q-text">O que as pessoas costumam pedir sua ajuda?</div>
+  <div class="opts">
+    <div class="opt" onclick="pick(this,2,'A')">Para entender algo, explicar ou organizar informação.</div>
+    <div class="opt" onclick="pick(this,2,'B')">Para resolver conflitos, ouvir ou aconselhar.</div>
+    <div class="opt" onclick="pick(this,2,'C')">Para construir, consertar ou executar algo concreto.</div>
+    <div class="opt" onclick="pick(this,2,'D')">Para pensar em soluções criativas ou fora do óbvio.</div>
   </div>
+</div>
 
-  <div class="card">
-    <div class="checks">
-      <div class="check-item"><div class="check-icon">✓</div>Por que o sistema nunca valorizou seus talentos</div>
-      <div class="check-item"><div class="check-icon">✓</div>Habilidades que você desenvolveu sem perceber</div>
-      <div class="check-item"><div class="check-icon">✓</div>Qual carreira pode explorar seu potencial real</div>
-      <div class="check-item"><div class="check-icon">✓</div>Validação emocional baseada em psicologia cognitiva</div>
-    </div>
+<div class="screen" id="s3">
+  <div class="prog-row"><div class="prog-track"><div class="prog-fill" style="width:50%"></div></div><span class="prog-txt">3 / 6</span></div>
+  <div class="q-tag"><div class="q-tag-dot"></div>Pergunta 03</div>
+  <div class="q-text">Na escola, você era do tipo:</div>
+  <div class="opts">
+    <div class="opt" onclick="pick(this,3,'A')">Ia bem em matérias que exigiam lógica ou leitura.</div>
+    <div class="opt" onclick="pick(this,3,'B')">Me saía melhor quando o professor era bom — a aula importava mais que o conteúdo.</div>
+    <div class="opt" onclick="pick(this,3,'C')">Odiava teoria — queria logo a parte prática.</div>
+    <div class="opt" onclick="pick(this,3,'D')">Era inteligente mas tirava nota ruim — não conseguia mostrar no papel.</div>
   </div>
+</div>
 
-  <button class="cta-btn">Descobrir meu potencial oculto →</button>
-
-  <div class="prog-bar">
-    <div class="prog-label">
-      <span>94% sentem que o resultado explica anos de frustração</span>
-      <span id="pct">0%</span>
-    </div>
-    <div class="bar-track"><div class="bar-fill"></div></div>
+<div class="screen" id="s4">
+  <div class="prog-row"><div class="prog-track"><div class="prog-fill" style="width:66%"></div></div><span class="prog-txt">4 / 6</span></div>
+  <div class="q-tag"><div class="q-tag-dot"></div>Pergunta 04</div>
+  <div class="q-text">Quando você tem um problema para resolver, você:</div>
+  <div class="opts">
+    <div class="opt" onclick="pick(this,4,'A')">Analisa tudo antes de agir — quer entender o sistema.</div>
+    <div class="opt" onclick="pick(this,4,'B')">Conversa com alguém — pensar junto funciona melhor.</div>
+    <div class="opt" onclick="pick(this,4,'C')">Começa a resolver enquanto pensa — ação e raciocínio ao mesmo tempo.</div>
+    <div class="opt" onclick="pick(this,4,'D')">Usa intuição — sente qual caminho é o certo antes de saber explicar.</div>
   </div>
+</div>
 
-  <p class="counter"><span id="live-count">19</span> pessoas descobriram seu tipo nos últimos 5 minutos</p>
-
-  <div class="unlock">
-    <h2>🧩 Descobrir meu potencial oculto</h2>
-    <p>Como seria sua vida se você tivesse sido reconhecido desde o início — e como ainda dá tempo de mudar o rumo.</p>
-    <a href="[INSERIR LINK DE PAGAMENTO AQUI]" class="unlock-btn">Quero descobrir meu potencial →</a>
+<div class="screen" id="s5">
+  <div class="prog-row"><div class="prog-track"><div class="prog-fill" style="width:83%"></div></div><span class="prog-txt">5 / 6</span></div>
+  <div class="q-tag"><div class="q-tag-dot"></div>Pergunta 05</div>
+  <div class="q-text">Qual tipo de inteligência você sempre sentiu que tinha mas ninguém reconhecia?</div>
+  <div class="opts">
+    <div class="opt" onclick="pick(this,5,'A')">Raciocínio — consigo enxergar padrões que os outros não veem.</div>
+    <div class="opt" onclick="pick(this,5,'B')">Emocional — entendo pessoas com uma profundidade que assusta.</div>
+    <div class="opt" onclick="pick(this,5,'C')">Técnica — consigo construir, consertar, executar qualquer coisa.</div>
+    <div class="opt" onclick="pick(this,5,'D')">Criativa — penso diferente, mas o mundo não foi feito para esse jeito.</div>
   </div>
+</div>
 
-  <footer>Para muitas pessoas, este resultado explica anos de frustração e comparação.</footer>
-</main>
+<div class="screen" id="s6">
+  <div class="prog-row"><div class="prog-track"><div class="prog-fill" style="width:100%"></div></div><span class="prog-txt">6 / 6</span></div>
+  <div class="q-tag"><div class="q-tag-dot"></div>Pergunta 06</div>
+  <div class="q-text">O que mais te frustrava na escola?</div>
+  <div class="opts">
+    <div class="opt" onclick="pick(this,6,'A')">Decorar sem entender o porquê.</div>
+    <div class="opt" onclick="pick(this,6,'B')">Trabalhar sozinho quando aprendia mais em grupo.</div>
+    <div class="opt" onclick="pick(this,6,'C')">Ficar parado ouvindo quando queria estar fazendo.</div>
+    <div class="opt" onclick="pick(this,6,'D')">Ser avaliado de um jeito que não mostrava o que eu realmente sabia.</div>
+  </div>
+</div>
 
+<div class="screen" id="sl"><div class="spin"></div><div class="dots"><i></i><i></i><i></i></div><div class="ltxt">Mapeando seu potencial real...</div></div>
+<div class="screen" id="sr"></div>
+</div>
 <script>
-(function(){for(let i=0;i<10;i++){const p=document.createElement('div');p.className='particle';p.style.cssText=`left:${Math.random()*100}%;animation-duration:${7+Math.random()*9}s;animation-delay:${Math.random()*9}s;width:${2+Math.random()*3}px;height:${2+Math.random()*3}px`;document.body.appendChild(p)}})();
-
-setTimeout(()=>{document.querySelectorAll('.disc-fill').forEach(el=>{el.style.width=el.dataset.w+'%'})},400);
-
-let n=0;const pct=document.getElementById('pct');
-setTimeout(()=>{const t=setInterval(()=>{n++;pct.textContent=n+'%';if(n>=94)clearInterval(t)},16)},800);
-const el=document.getElementById('live-count');
-setInterval(()=>{el.textContent=Math.max(9,parseInt(el.textContent)+(Math.random()>.5?1:-1))},4300);
+const ans={};
+const P={
+  A:{name:'Inteligência Lógico-Analítica 🧠',desc:'Você pensa em sistemas, padrões e estruturas — e enxerga conexões que a maioria não percebe. O sistema tradicional valorizou esse tipo, mas provavelmente nunca te deu espaço suficiente para ir fundo no que realmente importa.',pts:['Você aprende melhor sozinho, no seu ritmo e profundidade.','Tem facilidade com dados, lógica e raciocínio estruturado.','Seu maior diferencial é ver o que os outros perdem.','Carreiras que exploram seu potencial: tecnologia, ciência, direito, filosofia, finanças.']},
+  B:{name:'Inteligência Emocional-Social 🫀',desc:'Você lê pessoas e situações com uma precisão que poucos têm. Esse é o tipo de inteligência mais raro e mais valioso no mundo real — e o que a escola menos sabe avaliar.',pts:['Você entende o que os outros sentem antes que eles verbalizem.','Tem facilidade natural para liderar, mediar e conectar pessoas.','Seu maior diferencial: fazer as pessoas se sentirem vistas.','Carreiras que exploram seu potencial: psicologia, liderança, educação, vendas, gestão.']},
+  C:{name:'Inteligência Prático-Técnica 🔨',desc:'Você aprende fazendo — e o que você constrói funciona. Enquanto outros teorizam, você executa. Essa inteligência move o mundo, mas raramente é celebrada em sala de aula.',pts:['Você tem instinto natural para resolver problemas concretos.','Aprende mais em 1 hora de prática do que em dias de teoria.','Seu maior diferencial: fazer acontecer quando os outros ainda estão planejando.','Carreiras que exploram seu potencial: engenharia, arquitetura, medicina, empreendedorismo.']},
+  D:{name:'Inteligência Criativo-Intuitiva 🎨',desc:'Você pensa de formas que não cabem em caixas convencionais — e por isso o sistema tradicional nunca soube onde te colocar. Sua inteligência é rara, não errada.',pts:['Você vê possibilidades onde os outros veem limitações.','Tem intuição forte — frequentemente sente a resposta antes de saber explicá-la.','Seu maior diferencial: criar algo do zero que ressoa com as pessoas.','Carreiras que exploram seu potencial: design, arte, comunicação, inovação, escrita.']}
+};
+function pick(el,q,opt){el.parentElement.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');ans[q]=opt;setTimeout(()=>go(q),400)}
+function go(q){document.getElementById('s'+q).classList.remove('active');if(q<6){document.getElementById('s'+(q+1)).classList.add('active')}else{document.getElementById('sl').classList.add('active');setTimeout(result,2200)}}
+function result(){const c={A:0,B:0,C:0,D:0};Object.values(ans).forEach(v=>c[v]++);const top=Object.entries(c).sort((a,b)=>b[1]-a[1])[0][0];const p=P[top];const icons=['◆','◈','◉','◇'];
+document.getElementById('sr').innerHTML=`<div class="r-hero"><div class="r-eyebrow">Seu tipo de inteligência</div><div class="r-name">${p.name}</div><div class="r-desc">${p.desc}</div></div><div class="r-pts">${p.pts.map((pt,i)=>`<div class="rp"><div class="rp-icon">${icons[i]}</div><span>${pt}</span></div>`).join('')}</div><div class="r-cta"><div class="cta-tag">Potencial completo</div><div class="cta-h">Descobrir meu potencial oculto</div><div class="cta-s">Como usar sua inteligência real para escolher o caminho certo — e parar de se comparar com padrões que não foram feitos para você.</div><div class="cta-checks"><div class="cta-check"><div class="cta-check-dot">✓</div>Análise completa do seu tipo</div><div class="cta-check"><div class="cta-check-dot">✓</div>Carreiras e caminhos ideais</div><div class="cta-check"><div class="cta-check-dot">✓</div>Como desenvolver seus pontos fortes</div><div class="cta-check"><div class="cta-check-dot">✓</div>Acesso imediato</div></div><a href="[INSERIR LINK DE PAGAMENTO AQUI]" class="cta-btn">Quero descobrir meu potencial →</a><div class="cta-price">Acesso imediato · R$ 19,90</div></div>`;
+document.getElementById('sl').classList.remove('active');document.getElementById('sr').classList.add('active')}
 </script>
 </body>
 </html>
